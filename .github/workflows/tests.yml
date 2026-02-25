@@ -1,0 +1,37 @@
+name: Tests
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  swift_test:
+    name: Test
+    runs-on: macos-latest
+    steps:
+      - name: Check out Tablature
+        uses: actions/checkout@v4
+      - name: Test Tablature
+        run: swift test -c release
+
+  # Build the demo projects.
+  build_demo:
+    name: Build Demo
+    runs-on: macos-latest
+    needs: [swift_test]
+    steps:
+      - name: Check out Tablature
+        uses: actions/checkout@v4
+      - name: Build Demo
+        run: xcodebuild build -project Demo/TablatureDemo.xcodeproj -scheme TablatureDemo -destination "name=My Mac"
+
+  # Send notification to Discord on failure.
+  send_notification:
+    name: Send Notification
+    uses: AudioKit/ci/.github/workflows/send_notification.yml@main
+    needs: [swift_test, build_demo]
+    if: ${{ failure() && github.ref == 'refs/heads/main' }}
+    secrets: inherit
