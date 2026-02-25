@@ -4,6 +4,8 @@ Guitar, bass, and any stringed instrument tablature visualization for SwiftUI.
 
 ## Overview
 
+![Demo Screenshot](demo)
+
 Tablature is a Swift package that renders tablature notation for stringed instruments using SwiftUI. It supports both static tablature display from pre-built sequences and real-time scrolling tablature driven by live input (e.g., a MIDI guitar).
 
 The library is dependency-free and works on macOS 12+, iOS 15+, and visionOS 1+.

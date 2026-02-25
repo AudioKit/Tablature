@@ -6,6 +6,8 @@
 
 A SwiftUI package for guitar, bass, and any stringed instrument tablature visualization. Part of the [AudioKit](https://audiokit.io) ecosystem.
 
+<img src="Sources/Tablature/Tablature.docc/Resources/demo.png" alt="Demo" />
+
 ## Installation
 
 Add Tablature via Swift Package Manager:
