@@ -1,38 +1,37 @@
 import Foundation
 
 extension TabSequence {
-    /// "Smoke on the Water" — 2 measures of the iconic riff using power chords
+    /// "Smoke on the Water" — 2 measures of the iconic riff using parallel fourths
     /// on strings 3 (G) and 4 (D). Demonstrates time-proportional layout and simultaneous notes.
     public static let smokeOnTheWater: TabSequence = {
-        // The riff: G5-Bb5-C5 | G5-Bb5-Db5-C5
-        // Played as dyads on strings 3 (G, index 3) and 4 (D, index 2)
-        // Guitar standard tuning: string 2 = D3 (50), string 3 = G3 (55)
+        // The riff: G-C, Bb-Eb, C-F | G-C, Bb-Eb, Db-Gb, C-F (parallel fourths)
+        // Played as dyads on strings 2 (D) and 3 (G) at the same fret
         let duration: TimeInterval = 4.0
 
         let measure1 = TabMeasure(duration: duration, notes: [
-            // G5 power chord: D string fret 5, G string fret 0
-            TabNote(string: 2, fret: 5, time: 0.0),
+            // Fret 0: D + G (perfect fourth)
+            TabNote(string: 2, fret: 0, time: 0.0),
             TabNote(string: 3, fret: 0, time: 0.0),
-            // Bb5: D string fret 8, G string fret 3
-            TabNote(string: 2, fret: 8, time: 1.0),
+            // Fret 3: F + Bb (perfect fourth)
+            TabNote(string: 2, fret: 3, time: 1.0),
             TabNote(string: 3, fret: 3, time: 1.0),
-            // C6: D string fret 10, G string fret 5
-            TabNote(string: 2, fret: 10, time: 2.0),
+            // Fret 5: G + C (perfect fourth)
+            TabNote(string: 2, fret: 5, time: 2.0),
             TabNote(string: 3, fret: 5, time: 2.0),
         ])
 
         let measure2 = TabMeasure(duration: duration, notes: [
-            // G5
-            TabNote(string: 2, fret: 5, time: 0.0),
+            // Fret 0: D + G
+            TabNote(string: 2, fret: 0, time: 0.0),
             TabNote(string: 3, fret: 0, time: 0.0),
-            // Bb5
-            TabNote(string: 2, fret: 8, time: 1.0),
+            // Fret 3: F + Bb
+            TabNote(string: 2, fret: 3, time: 1.0),
             TabNote(string: 3, fret: 3, time: 1.0),
-            // Db6: D string fret 11, G string fret 6
-            TabNote(string: 2, fret: 11, time: 2.0),
+            // Fret 6: Ab + Db (perfect fourth)
+            TabNote(string: 2, fret: 6, time: 2.0),
             TabNote(string: 3, fret: 6, time: 2.0),
-            // C6
-            TabNote(string: 2, fret: 10, time: 3.0),
+            // Fret 5: G + C
+            TabNote(string: 2, fret: 5, time: 3.0),
             TabNote(string: 3, fret: 5, time: 3.0),
         ])
 
